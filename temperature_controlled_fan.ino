@@ -7,8 +7,6 @@
 #include <dht.h>
 #include <LiquidCrystal.h>
 
-
-dht DHT;
 #define FAN1_RELAY_PIN 7
 #define TEMP_SENSOR_PIN 8
 #define DHT11_PIN 6
@@ -21,6 +19,7 @@ dht DHT;
 
 // initialize the library with the numbers of the interface pins
 LiquidCrystal lcd(LCD_RS_PIN, LCD_EN_PIN, LCD_D4_PIN, LCD_D5_PIN, LCD_D6_PIN, LCD_D7_PIN);
+dht DHT;
 
 void setup() {
 
@@ -29,7 +28,7 @@ void setup() {
   // set up the LCD's number of columns and rows: 
   lcd.begin(16, 2);
   
-  // Set up the realy
+  // Set up the relay
   pinMode(FAN1_RELAY_PIN, OUTPUT);
   
   // Print a message to the LCD.
@@ -74,7 +73,7 @@ void loop() {
   Serial.println(current_humidity, 1);  
    
   // If current temperature is below 22C set the fan relay to low which will eventually power on the relay which opens the AC circuit and switches off the fan
-  if(current_temp <= 25) {
+  if(current_temp <= 22) {
     digitalWrite(FAN1_RELAY_PIN, 0);
     fan_running = false;
   } else {
