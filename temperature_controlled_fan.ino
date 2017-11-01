@@ -28,7 +28,7 @@ void setup() {
   // set up the LCD's number of columns and rows: 
   lcd.begin(16, 2);
 
-  // Set up the realy
+  // Set up the relay
   pinMode(FAN1_RELAY_PIN, OUTPUT);
 
   // Print a message to the LCD.
@@ -51,7 +51,7 @@ void loop() {
   // By default the fan will run
   boolean fan_running = true;
 
-  // Check the temperature every 1 minuites
+  // Check the temperature every 1 minute
   delay(60000);
 
   // Set the cursor to column 0, line 0
@@ -63,7 +63,7 @@ void loop() {
   lcd.print("Temp:");
   lcd.print(current_temp);
 
-  Serial.println("Temparature: ");
+  Serial.println("Temperature: ");
   Serial.println(current_temp, 1);
 
   lcd.print(" Humi:");
@@ -82,7 +82,7 @@ void loop() {
     fan_running = true;
   }
 
-  // Print fan runnig status to LCD
+  // Print fan running status to LCD
   lcd.setCursor(0, 1);
   if(fan_running) {
     Serial.println("Fan:on");
