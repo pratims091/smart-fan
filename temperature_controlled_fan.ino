@@ -51,8 +51,7 @@ void loop() {
   // By default the fan will run
   boolean fan_running = true;
 
-  // Check the temperature every 1 minute
-  delay(60000);
+  lcd.clear();
 
   // Set the cursor to column 0, line 0
   // (note: line 1 is the second row, since counting begins with 0):
@@ -92,4 +91,6 @@ void loop() {
     lcd.print("Fan:off");
   }
 
+  // Check the temperature every 1 hour
+  delay(3600000);
 }
